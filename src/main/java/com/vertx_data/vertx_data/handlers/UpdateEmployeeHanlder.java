@@ -29,6 +29,7 @@ public enum UpdateEmployeeHanlder implements Handler<RoutingContext> {
         .setStatusCode(HttpResponseStatus.NOT_FOUND.code())
         .end(new Status(-1, "Employee not available with " + updateEmployee.getId() + " id").toJsonObject().toBuffer());
     }
+    assert employees != null;
     employees.setName(updateEmployee.getName());
     employees.setContact(updateEmployee.getContact());
     employees.setGender(Gender.getGender(updateEmployee.getGender()));
